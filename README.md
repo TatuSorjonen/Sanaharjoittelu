@@ -7,3 +7,8 @@ Jos saa oikean vastauksen ohjelma kertoo sen ja jos ei saa nii ohjelma kertoo mi
 Tämä jatkuu kunnes kaikki sanat on käyty läpi. <br />
 Käyttäjä pystyy lopettamaan testin milloin tahansa. <br />
 Lopuksi käyttäjä voi arvioida testin.
+
+
+
+
+Olen tehnyt käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden käyttäjän kohdan. Jos käyttäjä 
