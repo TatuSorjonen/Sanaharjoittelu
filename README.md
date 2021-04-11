@@ -20,7 +20,7 @@ Muuta en ole kerennyt tekemään.
 
 Suurin osa ajasta meni opetteluun ja Herokun kanssa säätämiseen, kun en ole tällaisia ennen tehnyt.
 
-ps. Vaihdoin githubin osoitteen ja työn nimen siitä edellisestä, mutta kopsasin ton ensimmäisen vaiheen tähän README.md, jos joku pitää ylhäällä edellisiä.
+ps. Vaihdoin labtooliin githubin osoitteen ja työn nimen siitä edellisestä, mutta kopsasin ton ensimmäisen vaiheen tähän README.md, jos joku pitää ylhäällä edellisiä.
 
 [Voit testata Herokussa tästä](https://sanakortit.herokuapp.com/) <br />
 
