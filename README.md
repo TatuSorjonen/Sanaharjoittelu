@@ -15,3 +15,5 @@ Olen tehnyt että käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden k
 Käyttäjä pystyy lisäämään sanoja ja käännöksiä tietokantaan, mutta niitä ei vielä näy missään. Testi osuudessa ei ole vielä oikein mitään. Siinä on tällähetkellä vain minun harjoittelua ja ei sisällä mitään tietokantaa.
 Muuta en ole kerennyt tekemään.
 
+[Voit testata Herokussa tästä](https://sanakortit.herokuapp.com/) <br />
+
