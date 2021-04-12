@@ -22,6 +22,6 @@ Suurin osa ajasta meni opetteluun ja Herokun kanssa säätämiseen, kun en ole t
 
 ps. Vaihdoin labtooliin githubin osoitteen ja työn nimen siitä edellisestä, mutta kopsasin ton ensimmäisen vaiheen tähän README.md, jos joku pitää ylhäällä edellisiä.
 
-Älä laita tyhjää salasanaa kirjautumiseen. Sovellus menee tällähetkellä rikki jos näin tekee.
+Älä laita tyhjää salasanaa tai käyttäjänimeä kirjautumiseen. Sovellus menee tällähetkellä rikki jos näin tekee.
 [Voit testata Herokussa tästä](https://sanakortit.herokuapp.com/) <br />
 
