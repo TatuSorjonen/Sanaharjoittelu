@@ -6,8 +6,8 @@ from os import getenv
 app = Flask(__name__)
 app.secret_key = getenv("SECRET_KEY")
 #app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///sorjonet"
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://musenyxyafkmob:1949fc7810991bad9aca3776aec3ce6bab7e04aa5952f2268020e8ea77af669a@ec2-54-78-36-245.eu-west-1.compute.amazonaws.com:5432/dff2medqhagcfq"
-#app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://fayzaydkuxqoez:c642c128e75d01856fe93e1acf1c558fd092a27ba906206948367486efc4b417@ec2-35-174-35-242.compute-1.amazonaws.com:5432/d30ggv0nvmot3l"
+#app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://musenyxyafkmob:1949fc7810991bad9aca3776aec3ce6bab7e04aa5952f2268020e8ea77af669a@ec2-54-78-36-245.eu-west-1.compute.amazonaws.com:5432/dff2medqhagcfq"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://fayzaydkuxqoez:c642c128e75d01856fe93e1acf1c558fd092a27ba906206948367486efc4b417@ec2-35-174-35-242.compute-1.amazonaws.com:5432/d30ggv0nvmot3l"
 db = SQLAlchemy(app)
 
 @app.route("/")
