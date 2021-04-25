@@ -11,7 +11,7 @@ Käyttäjä pystyy lopettamaan testin milloin tahansa. <br />
 Lopuksi käyttäjä voi arvioida testin.
 
 
-Toinen vaihe:
+<h3> Toinen vaihe: </h3>
 
 Olen tehnyt että käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden käyttäjän. Käyttäjät tallentuvat tietokantaan. Ei vielä toimi jos käyttäjä kirjoittaa väärin kirjautumisessa vaadittavat arvot ja ei toimi jos username on jo tietokannassa. Käyttäjä voi myös kirjautua ulos.
 
@@ -25,7 +25,7 @@ ps. Vaihdoin labtooliin githubin osoitteen ja työn nimen siitä edellisestä, m
 Älä laita tyhjää salasanaa tai käyttäjänimeä uuden käyttäjän luomisessa. Sovellus voi mennä tällähetkellä rikki jos näin tekee.
 
 
-Kolmas vaihe: 
+<h3> Kolmas vaihe: </h3> 
 
 Olen tehnyt että käyttäjä voi lisätä pakkoja ja katsoa arvostelut. 
 
@@ -37,7 +37,7 @@ Käyttäjä voi kirjautua milloin vain ulos tai palata alkuun.
 
 Ulkoasua muunneltu paljon. Saatan vielä muutella joitain kohtia, mutta ajattelin pitää ulkomuodon tämän näköisenä näin pääpiirteittäin. 
 
-Virheistä tulee error.html sivu mikä laittaa sinut alkuun palaa nappulaa painamalla. Muita virheilmoituksia ei pitäisi tulla. Jos tulee niin olisin kiitollinen, jos kertoisit mistä tämä virhe aiheutuu niin muokkaan tämän.
+Virheistä tulee error.html sivu mikä laittaa sinut alkuun palaa nappulaa painamalla. Muita virheilmoituksia ei pitäisi tulla. Jos tulee niin olisin kiitollinen, jos kertoisit mistä tämä virhe aiheutuu niin muokkaan tämän. (Voi olla, että on joitain mistä tulee, en ole testannu aivan kaikkia mahdollisuuksia)
 
 [Voit testata Herokussa tästä](https://sanaharjoittelu.herokuapp.com/) <br />
 
