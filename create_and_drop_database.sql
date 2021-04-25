@@ -1,3 +1,5 @@
+DROP TABLE estimate;
+DROP TABLE test;
 DROP TABLE words;
 DROP TABLE deck;
 DROP TABLE dictionary_users;
@@ -23,4 +25,18 @@ CREATE TABLE words (
 	translation VARCHAR (50) NOT NULL	
 );
 
+CREATE TABLE test (
+	test_id SERIAL PRIMARY KEY,
+	user_id INTEGER REFERENCES dictionary_users,
+	deck_id INTEGER REFERENCES deck,
+	right_answers VARCHAR (50) NOT NULL,
+	wrong_answers VARCHAR (50) NOT NULL
+);
 
+CREATE TABLE estimate (
+	estimate_id SERIAL PRIMARY KEY,
+	user_id INTEGER REFERENCES dictionary_users,
+	deck_id INTEGER REFERENCES deck,
+	grade INTEGER,
+	comment VARCHAR (1000)
+);

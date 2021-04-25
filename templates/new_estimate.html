@@ -13,17 +13,13 @@
   <body>
 	<h1>Sanaharjoittelu</h1>
 	
-	<form action="/add_new_user" method="POST">
-	  <p>Uuden käyttäjän käyttäjänimi</p>
-	  <input type="text" name="username"></p>
-	  <p>Salasana:</p>
-	  <input type="password" name="password"></p>
-	  <p>Opettaja:</p>
-	  <input type="checkbox" name="teacher"></p>
-	  <input type="submit" value="Tee uusi käyttäjä"></br>
-	  </br>
-	  <a href= "/">Palaa</a></br>
+	<form action="/add_new_estimate" method="POST">
+	  <p>Anna palaute</p>
+	  <input type="text" name="estimate"></p>
+	  <input type="submit" value="Lähetä palaute"></br></br>
+	  <a href= "/">Palaa</a></br></br>
+	  <a href="/logout">Kirjaudu ulos tästä</a>
 	</form>
-
+	
 </body>
 </html>

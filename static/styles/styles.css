@@ -1,0 +1,40 @@
+body {
+  background-color: CornSilk; 
+  padding: 25px 50px 75px 100px;
+}
+
+h1 {
+  color: black;
+}
+    
+h2 {
+  color: DarkSlateGrey;
+}
+  
+p {
+  color: black;
+}
+
+/* unvisited link */
+a:link {
+  color: DarkBlue;
+  font-size: 14px;
+}
+
+/* visited link */
+a:visited {
+  color: DarkBlue;
+  font-size: 14px;
+}
+
+/* mouse over link */
+a:hover {
+  color: DarkBlue;
+  font-size: 18px;
+}
+
+/* selected link */
+a:active {
+  color: DarkBlue;
+  font-size: 14px;
+}

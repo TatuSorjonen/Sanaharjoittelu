@@ -1,12 +1,39 @@
-<form action="/result" method="POST">
-<title>Testi</title>
-<h1>Tervetuloa testiin</h1>
-<a> Mikä on englanniksi auto? </a></br>
-<input type="text" name="car"></p></br>
-<a> Mikä on englanniksi koira? </a></br>
-<input type="text" name="dog"></p></br>
-<a> Mikä on englanniksi kissa? </a></br>
-<input type="text" name="cat"></p></br>
-<input type="submit" value="Lähetä">
-</form>
-<a href="/">Kirjaudu ulos tästä</a>
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <title>Tatun sananharjoittelu</title>
+  
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+  <body>
+	<h1>Sanaharjoittelu</h1>
+
+	<form action="/result" method="POST">
+	  <title>Testi</title>
+	  <h1>Tervetuloa testiin</h1>
+	  <hr>
+	  <select id="deck" name="deck_id">
+{% for word in deck %}
+	  <option value="{{ word[0] }}">{{ word[1] }}</option>
+{% endfor %}
+	  </select>
+	  <a> Mikä on englanniksi auto? </a></br>
+	  <input type="text" name="car"></p></br>
+	  <a> Mikä on englanniksi koira? </a></br>
+	  <input type="text" name="dog"></p></br>
+	  <a> Mikä on englanniksi kissa? </a></br>
+	  <input type="text" name="cat"></p></br>
+	  <input type="submit" value="Lähetä"></br>
+	</form>
+	  </br>
+	  <a href= "/">Palaa</a></br></br>
+	  <a href="/logout">Kirjaudu ulos tästä</a>
+
+
+</body>
+</html>

@@ -13,17 +13,20 @@
   <body>
 	<h1>Sanaharjoittelu</h1>
 	
-	<form action="/add_new_user" method="POST">
-	  <p>Uuden käyttäjän käyttäjänimi</p>
-	  <input type="text" name="username"></p>
-	  <p>Salasana:</p>
-	  <input type="password" name="password"></p>
-	  <p>Opettaja:</p>
-	  <input type="checkbox" name="teacher"></p>
-	  <input type="submit" value="Tee uusi käyttäjä"></br>
-	  </br>
-	  <a href= "/">Palaa</a></br>
+	<h3>Valitse pakka</h3>
+	
+	<form action="/test">
+	  <label for="deck"></label>
+	  <select id="deck" name="deck_id">
+{% for deck in name %}
+		<option value="{{ deck[0] }}">{{ deck[1] }}</option>
+{% endfor %}
+	  </select>
+	  <input type="submit" value= "mene testiin valitulla pakalla"></br></br>
+	  <a href= "/">Palaa</a></br></br>
+	  <a href="/logout">Kirjaudu ulos tästä</a>
 	</form>
+
 
 </body>
 </html>

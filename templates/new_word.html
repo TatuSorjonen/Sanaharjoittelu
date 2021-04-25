@@ -1,7 +1,28 @@
-<form action="/add_new_word" method="POST">
-<p>Suomi</p>
-<input type="text" name="word"></p>
-<p>Englanti</p>
-<input type="text" name="translation"></p>
-<input type="submit" value="Lisää kirjoitettu sana tietokantaan">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <title>Tatun sananharjoittelu</title>
+  
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+  <body>
+	<h1>Sanaharjoittelu</h1>
+	
+	<form action="/add_new_word" method="POST">
+	  <p>Suomi</p>
+	  <input type="text" name="word"></p>
+	  <p>Englanti</p>
+	  <input type="text" name="translation"></p>
+	  <input type="submit" value="Lisää kirjoitettu sana tietokantaan"></br></br>
+	  <a href= "/">Palaa</a></br></br>
+	  <a href="/logout">Kirjaudu ulos tästä</a>
+	</form>
+
+
+</body>
+</html>

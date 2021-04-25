@@ -1,18 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
+  <title>Tatun sananharjoittelu</title>
+  
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+</head>
+  <body>
+   
+	<h1>Sanaharjoittelu</h1>
+
 {% if session.username %}
-<p>Olet kirjautunut nimellä {{ session.username }}</p>
-<a href="/test">Mene testiin</a><br>
-</br>
-<a href="/new_word">Lisää sanoja testiin</a></br>
-</br>
-<a href="/logout">Kirjaudu ulos käyttäjältä</a>
+	<p>Olet kirjautunut nimellä {{ session.username }}</p>
+	<a href="/select_deck">Mene testiin</a><br>
+	</br>
+	<a href="/new_word">Lisää sanoja testiin</a></br>
+	</br>
+	<a href="/new_deck">Lisää pakka</a></br>
+	</br>
+	<a href="/all_estimates">Katso arvostelut</a></br>
+	</br>
+	<a href="/logout">Kirjaudu ulos käyttäjältä</a>
 {% else %}
-<form action="/login" method="POST">
-<p>Käyttäjänimi:<br>
-<input type="text" name="username"></p>
-<p>Salasana:<br>
-<input type="password" name="password"></p>
-<a href="/new_user">Tee uusi käyttäjä</a></br>
-</br>
-<input type="submit" value="Kirjaudu sisään">
-</form>
+	<form action="/login" method="POST">
+	<p>Käyttäjänimi:<br>
+	<input type="text" name="username"></p>
+	<p>Salasana:<br>
+	<input type="password" name="password"></p>
+	<input type="submit" value="Kirjaudu sisään">
+	</form>
+	</br>
+	<a href="/new_user">Tee uusi käyttäjä</a></br>
 {% endif %}
+
+
+</body>
+</html>
