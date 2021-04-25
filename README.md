@@ -1,6 +1,6 @@
 # Sanaharjoittelu
 
-Ensimmäinen vaihe:
+<h3> Ensimmäinen vaihe: </h3>
 
 Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden käyttäjän. <br />
 Käyttäjä voi nähdä omat tuloksensa montako hän on saanut oikein. <br />
