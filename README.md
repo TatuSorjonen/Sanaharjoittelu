@@ -39,5 +39,7 @@ Ulkoasua muunneltu paljon. Saatan vielä muutella joitain kohtia, mutta ajatteli
 
 Virheistä tulee error.html sivu mikä laittaa sinut alkuun palaa nappulaa painamalla. Muita virheilmoituksia ei pitäisi tulla. Jos tulee niin olisin kiitollinen, jos kertoisit mistä tämä virhe aiheutuu niin muokkaan tämän. (Voi olla, että on joitain mistä tulee, en ole testannu aivan kaikkia mahdollisuuksia)
 
+28.04.2021 klo.1.52am: Huomasin, että jokin oli rikkonut sovelluksen eikä se enään ottanut yhteyttä tietokantaan jostain minulle tuntemattomasta syystä. Tein uuden tietokannan, mutta muuten koodia ei ole muutettu palautuksen jälkeen. 
+
 [Voit testata Herokussa tästä](https://sanaharjoittelu.herokuapp.com/) <br />
 
