@@ -11,6 +11,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL")
 db = SQLAlchemy(app)
 
 def checklogin():
+    #Check if username is login or not. If not this return error.
     if len(session) == 0 or session["username"] == None or session["user_id"] == None:
     	raise Exception("Et ole kirjautunut sisään!")
         #return render_template('error.html', error = 'Et ole kirjautunut sisään')
@@ -21,17 +22,22 @@ def index():
     
 @app.route("/styles")
 def styles():
+    #CSS Styles
     return render_template("styles.css")
 
 @app.route("/login",methods=["POST"])
 def login():
     username = request.form["username"]
     password = request.form["password"]
+    
+    #Takes user information from database where the username you provided is "username"
     result = db.session.execute(f"SELECT password, user_id, teacher FROM dictionary_users WHERE username = '{username}'")
     result_list = result.fetchone()
     right_password = result_list[0]
     user_id = result_list[1]
     teacher = result_list[2]
+    
+    #Check if the username have right password
     if password == right_password:
         session["username"] = username  
         session["user_id"] = user_id
@@ -40,6 +46,8 @@ def login():
 
 @app.route("/logout")
 def logout():
+
+    #Deletes all sessions and returns back to login screen
     del session["username"]
     del session["user_id"]
     del session["teacher"]
@@ -48,6 +56,8 @@ def logout():
 @app.route("/select_deck")
 def select_deck():
     checklogin()
+    
+    #Select all decks and their information
     result = db.session.execute("SELECT deck.deck_id, deck.name, deck.difficulty, COUNT(words.word) FROM deck, words WHERE deck.deck_id = words.deck_id GROUP BY deck.deck_id")
     name = result.fetchall()
     return render_template("select_deck.html", name=name)
@@ -56,7 +66,8 @@ def select_deck():
 def test():
     checklogin()
     deck_id = request.args.get("deck_id")
-    print('\n\ndeck_id =', deck_id)
+    
+    #SELECT every word from database where deck_id is the same as what you selected
     result = db.session.execute(f"SELECT card_id, word, deck_id FROM words WHERE deck_id = {deck_id}")
     word = result.fetchall()
     return render_template("test.html", word=word, deck_id=deck_id)
@@ -65,12 +76,15 @@ def test():
 def result():
     checklogin()
     form_data = request.form
+    
+    #There is three arrays. One with all words, one with right answers and last with wrong answers
     words = {}
     rights = {}
     wrongs = {}
     deck_id = request.form["deck_id"]
     user_id = session['user_id']
     
+    #Takes all keys and values from test.html and if it starts with translation_, we take a id one after split. And then we take all words and translations from database where card_id is splitted card_id.
     for key,value in form_data.items():
     	if key.startswith("translation_"):
     	    card_id = int(key.split("translation_")[1])
@@ -79,11 +93,15 @@ def result():
     	    word = result_list[1]
     	    right_translation = result_list[0]
     	    words[card_id] = value
+    	    
+    	    #Now we check if your guess is right or not.
     	    if right_translation == value:
     	        rights[word] = right_translation
     	    else:
     	        wrongs[word] = value
-
+    
+    
+    #Here we put all right_answers and wrong_aswers into database
     right_answers = len(rights)
     wrong_answers = len(wrongs)
     sql = "INSERT INTO test_results (user_id, deck_id, right_answers, wrong_answers) VALUES (:user_id, :deck_id, :right_answers, :wrong_answers)"
@@ -102,6 +120,7 @@ def add_new_user():
     username = request.form["username"]
     password = request.form["password"]
     teacher = 0
+    #Check if your new user is a teacher or not and put user in database
     if "teacher" in request.form:
         teacher = 1        
     sql = "INSERT INTO dictionary_users (username, password, teacher) VALUES (:username, :password, :teacher)"
