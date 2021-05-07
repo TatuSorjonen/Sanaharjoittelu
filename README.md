@@ -3,7 +3,7 @@
 <h3> Kirjautuminen </h3>
 
 - Käyttäjä voi tehdä uuden käyttäjän, joko oppilaana tai opettajana. Jos käyttäjänimi tai salasana ovat liian pitkiä tai kokonaan tyhjiä uuden käyttäjän tekemisen seurauksena, sovellus heittää virheilmoituksen.
-- Tämän jälkeen käyttäjä voi kirjautua sissän omalla käyttäjätunnuksellaan. Jos käyttäjätunnus on väärin, niin sovellus heittää virheilmoituksen asiasta. 
+- Käyttäjä voi kirjautua sisään omalla käyttäjätunnuksellaan. Jos käyttäjätunnus on väärin, niin sovellus heittää virheilmoituksen asiasta. 
 
 <h3> Ensimmäinen vaihe: </h3>
 
