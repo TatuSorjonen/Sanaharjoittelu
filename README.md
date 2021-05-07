@@ -5,6 +5,16 @@
 - Käyttäjä voi tehdä uuden käyttäjän, joko oppilaana tai opettajana. Jos käyttäjänimi tai salasana ovat liian pitkiä tai kokonaan tyhjiä uuden käyttäjän tekemisen seurauksena, sovellus heittää virheilmoituksen.
 - Käyttäjä voi kirjautua sisään omalla käyttäjätunnuksellaan. Jos käyttäjätunnus on väärin, niin sovellus heittää virheilmoituksen asiasta. 
 
+<h3> Testi opettajan näkökulmasta </h3>
+
+- Opettaja voi luoda uuden pakan, mihin hän sitten voi laittaa uusia Suomi-Englanti sanoja. Hän voi myös poistaa pakan tarvittaessa.
+- Opettaja pystyy tekemään testin, missä hän valitsee testiin pakan ja tämän jälkeen tämä tulostaa kaikki sanat taulukkoon, mihin hän kokeilee saada sanoja oikein. Tämän jälkeen käyttäjä saa tulokset, mitkä sanat meni oikein ja mitkä väärin ja montako meni oikein. 
+- Testin loppuvaiheessa käyttäjä voi antaa arvion testistä. Oman vapaavalintaisen kommentin, sekä arvosanan 1-5. 
+- Opettaja pystyy katsomaan oppilaiden tuloksia tai omia tuloksiaan, mutta ei pysty näkemään toisten opettajien tuloksia. 
+- Käyttäjä näkee kaikki arvostelut jokaisesta pakasta.
+
+
+
 <h3> Ensimmäinen vaihe: </h3>
 
 Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden käyttäjän. <br />
