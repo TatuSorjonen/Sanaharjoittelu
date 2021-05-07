@@ -84,7 +84,8 @@ def result():
     deck_id = request.form["deck_id"]
     user_id = session['user_id']
     
-    #Takes all keys and values from test.html and if it starts with translation_, we take a id one after split. And then we take all words and translations from database where card_id is splitted card_id.
+    #Takes all keys and values from test.html and if it starts with translation_, we take a id one after split. 
+    #And then we take all words and translations from database where card_id is splitted card_id.
     for key,value in form_data.items():
     	if key.startswith("translation_"):
     	    card_id = int(key.split("translation_")[1])
