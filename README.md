@@ -14,6 +14,13 @@
 - Käyttäjä näkee kaikki arvostelut jokaisesta pakasta.
 
 
+<h3> Testi oppilaan näkökulmasta </h3>
+
+- Oppilas voi vain tehdä testin samalla tavalla kuin opettaja ja katsoa omia tuloksiaan, sekä katsoa arvioinnit.
+- Oppilaalla ei ole oikeuksia luoda uutta pakkaa, poistaa pakkaa tai lisätä siihen sanoja ja niiden käännöksiä.
+- Oppilas ei myöskään pysty katsomaan muiden oppilaiden tuloksia.
+
+
 
 <h3> Ensimmäinen vaihe: </h3>
 
