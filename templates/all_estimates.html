@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  
-  <title>Tatun sananharjoittelu</title>
-  
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-</head>
+{% include 'html_header.html' %}
   <body>
+  	
+{% include 'html_loginbox.html' %}
+	
 	<h1>Sanaharjoittelu</h1>
 	
 	<h3>Kaikki arvostelut</h3>
 	
-	<hr>
-{% for comment in estimate %}
-	{{ comment[0] }}
-	<hr>
+{% set ns = namespace (current_deck_id = 0) %}
+	
+{% for estimate in estimates_list %}
+
+{% if estimate[2] != ns.current_deck_id %}
+	<h4>Pakka: {{estimate[3]}}</h4>
+	{% set ns.current_deck_id = estimate[2] %}
+{% endif %}
+	<p id="comment">Kommentti: {{ estimate[0] }}</p>
+	<p id="grade">Annettu arvosana: {{ estimate[1] }}</p>
+	
 {% endfor %}
 
-	<a href= "/">Palaa</a></br></br>
-	<a href="/logout">Kirjaudu ulos</a>
+	</br></br>
 	
 </body>
 </html>

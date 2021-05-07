@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  
-  <title>Tatun sananharjoittelu</title>
-  
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-</head>
+{% include 'html_header.html' %}
   <body>
+  	
+{% include 'html_loginbox.html' %}
+	
 	<h1>Sanaharjoittelu</h1>
-
-	Mikä on eglanniksi auto?</br>
-	Vastasit {{ car }}</br>
-	Oikea vastaus on car</br>
-	</br>
-	Mikä on englanniksi koira?</br>
-	Vastasit {{ dog }}</br>
-	oikea vastaus on dog</br>
-	</br>
-	Mikä on englanniksi kissa?</br>
-	vastasit {{ cat }}</br>
-	Oikea vastaus on cat </br>
-	</br>
-	<a href= "estimate">Anna palautetta</a></br></br>
-	<a href= "/">Palaa</a></br></br>
-	<a href="/logout">Kirjaudu ulos</a>
+	
+	<h3>Tulokset</h3>
+	<table>
+	  <tr>
+	    <th>Oikein ({{rights|length}} kpl)</th>
+	    <th>Väärin ({{wrongs|length}} kpl)</th>
+	  </tr>
+	  <tr>
+	    <td>
+{% for right in rights %}
+	{{right}}</br>
+{% endfor %}
+	    </td>
+	    <td>
+{% for wrong in wrongs %}
+	{{wrong}}</br>
+{% endfor %}
+	    </td>
+	</tr>
+	</table>
+	</br></br>
+	<a href="/estimate?deck_id={{deck_id}}">Anna palautetta</a></br></br>
 	
 	
 </body>

@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  
-  <title>Tatun sananharjoittelu</title>
-  
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-</head>
+{% include 'html_header.html' %}
   <body>
+  	
+{% include 'html_loginbox.html' %}
+	
 	<h1>Sanaharjoittelu</h1>
+	
+{% if name | length == 0 %}
+	Ei ole olemassa pakkaa!</br></br>
+	Jos olet oppilas. Kirjaudu opettajana tekemään uusi pakka!</br></br>
+	Jos olet opettaja, lisää uusi pakka ensin alla olevasta linkistä!</br></br>
+	<a href= "/new_deck">Tästä voit lisätä uuden pakan</a>
+{% else %}
 	
 	<h3>Valitse pakka</h3>
 	
-	<form action="/test">
+	<table>
+	  <tr>
+	    <th>Nimi</th>
+	    <th>Vaikeusaste</th>
+	    <th>Sanojen määrä</th>
+	  </tr>
+	
+{% for deck in name %}
+	  <tr>
+	    <td><a href= "/test?deck_id={{deck[0]}}">{{ deck[1] }}</a></td> 
+	    <td>{{ deck[2] }}</td>
+	    <td>{{ deck[3] }}</td>
+	  </tr> 
+{% endfor %}
+	</table>
+	
+	<!--
+	
+	Nimi, Vaikeusaste, Sanojen määrä
+	</br></br>
+	
+	<form action="/test" method="POST">
 	  <label for="deck"></label>
 	  <select id="deck" name="deck_id">
 {% for deck in name %}
-		<option value="{{ deck[0] }}">{{ deck[1] }}</option>
+		<option value="{{ deck[0] }}">{{ deck[1] }}, {{ deck[2] }}, {{ deck[3] }}</option>
 {% endfor %}
 	  </select>
-	  <input type="submit" value= "mene testiin valitulla pakalla"></br></br>
-	  <a href= "/">Palaa</a></br></br>
-	  <a href="/logout">Kirjaudu ulos</a>
+	  <input type="submit" value= "Mene testiin">
+
+	  </br></br>
+	  
 	</form>
+	-->
+{% endif %}
+	</br></br>
+	
 
 
 </body>

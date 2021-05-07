@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  
-  <title>Tatun sananharjoittelu</title>
-  
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-</head>
+{% include 'html_header.html' %}
   <body>
+  	
+{% include 'html_loginbox.html' %}
+	
 	<h1>Sanaharjoittelu</h1>
 	
 	<p>Jokin meni vikaan</p>
+	
+	<p>Virhe: {{error}}</p>
+	
 	<a href="/">Palaa</a>	
 	
 	

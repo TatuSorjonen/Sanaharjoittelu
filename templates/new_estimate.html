@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  
-  <title>Tatun sananharjoittelu</title>
-  
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-</head>
+{% include 'html_header.html' %}
   <body>
+  	
+{% include 'html_loginbox.html' %}
+	
 	<h1>Sanaharjoittelu</h1>
 	
 	<form action="/add_new_estimate" method="POST">
+	  <input type="hidden" name="deck_id" value="{{ deck_id }}">
+	  <p> Anna arvosana testille 1-5 </p>
+	  <label for="grade"></label>
+	  <select id="grade" name="grade">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	  </select>
+	  </br>
 	  <p>Anna palaute</p>
 	  <input type="text" name="estimate"></p>
 	  <input type="submit" value="Lähetä palaute"></br></br>
-	  <a href= "/">Palaa</a></br></br>
-	  <a href="/logout">Kirjaudu ulos</a>
 	</form>
 	
 </body>

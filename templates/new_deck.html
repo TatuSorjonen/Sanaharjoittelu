@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  
-  <title>Tatun sananharjoittelu</title>
-  
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-</head>
+{% include 'html_header.html' %}
   <body>
+  	
+{% include 'html_loginbox.html' %}
+
 	<h1>Sanaharjoittelu</h1>
+	
+{% if session.teacher == 1 %}
 
 	<form action="/add_new_deck" method="POST">
 	  <p> Lisää nimi pakalle </p>
 	  <input type="text" name="name"></p>
 	  <p> Kerro kuinka vaikea tämä pakka on asteikolla 1-5 </p>
-	  <input type="text" name="difficulty"></p>
+	  <label for="difficulty"></label>
+	  <select id="difficulty" name="difficulty">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	  </select>
+	  </br></br>
 	  <input type="submit" value="Lisää pakka tietokantaan"></br></br>
-	  <a href= "/">Palaa</a></br></br>
-	  <a href="/logout">Kirjaudu ulos</a>
+{% else %}
+	Älä yritä huijata!!!! </br></br>
+{% endif %}
 	</form>
 
 
