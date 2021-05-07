@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+{% include 'html_header.html' %}
+  <body>
+  	
+{% include 'html_loginbox.html' %}
+	
+	<h1>Sanaharjoittelu</h1>
+	
+{% if session.teacher == 1 %}
+	
+	<form action="/add_new_word" method="POST">
+	  
+	  Valitse pakka</br></br>
+	  <label for="deck"></label>
+	  <select id="deck" name="deck_id">
+{% for deck in name %}
+		<option value="{{ deck[0] }}">{{ deck[1] }}</option>
+{% endfor %}
+	  </select>
+	  <p>Suomi</p>
+	  <input type="text" name="word"></p>
+	  <p>Englanti</p>
+	  <input type="text" name="translation"></p>
+	  <input type="submit" value="Lisää kirjoitettu sana tietokantaan"></br></br>
+{% else %}
+	  Älä yritä huijata!!!! </br></br>
+{% endif %}
+	</form>
+
+
+</body>
+</html>

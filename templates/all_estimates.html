@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{% include 'html_header.html' %}
+  <body>
+  	
+{% include 'html_loginbox.html' %}
+	
+	<h1>Sanaharjoittelu</h1>
+	
+	<h3>Kaikki arvostelut</h3>
+	
+{% set ns = namespace (current_deck_id = 0) %}
+	
+{% for estimate in estimates_list %}
+
+{% if estimate[2] != ns.current_deck_id %}
+	<h4>Pakka: {{estimate[3]}}</h4>
+	{% set ns.current_deck_id = estimate[2] %}
+{% endif %}
+	<p id="comment">Kommentti: {{ estimate[0] }}</p>
+	<p id="grade">Annettu arvosana: {{ estimate[1] }}</p>
+	
+{% endfor %}
+
+	</br></br>
+	
+</body>
+</html>

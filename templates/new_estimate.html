@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{% include 'html_header.html' %}
+  <body>
+  	
+{% include 'html_loginbox.html' %}
+	
+	<h1>Sanaharjoittelu</h1>
+	
+	<form action="/add_new_estimate" method="POST">
+	  <input type="hidden" name="deck_id" value="{{ deck_id }}">
+	  <p> Anna arvosana testille 1-5 </p>
+	  <label for="grade"></label>
+	  <select id="grade" name="grade">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	  </select>
+	  </br>
+	  <p>Anna palaute</p>
+	  <input type="text" name="estimate"></p>
+	  <input type="submit" value="Lähetä palaute"></br></br>
+	</form>
+	
+</body>
+</html>

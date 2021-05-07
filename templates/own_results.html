@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+{% include 'html_header.html' %}
+  <body>
+  	
+{% include 'html_loginbox.html' %}
+
+	<h1>Sanaharjoittelu</h1>
+	
+	<table>
+	  <tr>
+	    <th>Testin nimi</th>
+	    <th>Oikeiden määrä</th>
+	    <th>Väärien määrä</th>
+	  </tr>
+	
+{% for result in student_results %}
+	  <tr>
+	    <td>{{result[2]}}</td>
+	    <td>{{result[0]}}</td>
+	    <td>{{result[1]}}</td>
+	  <tr>
+	
+{% endfor %}
+
+	</table>
+	
+	</br></br>
+	
+</body>
+</html>
