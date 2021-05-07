@@ -16,12 +16,12 @@
 	  <tr>
 	    <td>
 {% for right in rights %}
-	{{right}}</br>
+	{{right}} = {{rights[right]}}</br>
 {% endfor %}
 	    </td>
 	    <td>
 {% for wrong in wrongs %}
-	{{wrong}}</br>
+	{{wrong}} = {{all_words[wrong]}}</br>
 {% endfor %}
 	    </td>
 	</tr>

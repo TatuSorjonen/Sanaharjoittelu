@@ -7,11 +7,12 @@
 	
 	<h1>Sanaharjoittelu</h1>
 	
-{% if name | length == 0 %}
-	Ei ole olemassa pakkaa!</br></br>
-	Jos olet oppilas. Kirjaudu opettajana tekemään uusi pakka!</br></br>
-	Jos olet opettaja, lisää uusi pakka ensin alla olevasta linkistä!</br></br>
+{% if deck_info | length == 0 %}
+	Ei ole olemassa pakkaa missä on sanoja!</br></br>
+{% if session.teacher == 1 %}
 	<a href= "/new_deck">Tästä voit lisätä uuden pakan</a>
+{% endif %}
+	
 {% else %}
 	
 	<h3>Valitse pakka</h3>
@@ -23,7 +24,7 @@
 	    <th>Sanojen määrä</th>
 	  </tr>
 	
-{% for deck in name %}
+{% for deck in deck_info %}
 	  <tr>
 	    <td><a href= "/test?deck_id={{deck[0]}}">{{ deck[1] }}</a></td> 
 	    <td>{{ deck[2] }}</td>
@@ -31,25 +32,7 @@
 	  </tr> 
 {% endfor %}
 	</table>
-	
-	<!--
-	
-	Nimi, Vaikeusaste, Sanojen määrä
-	</br></br>
-	
-	<form action="/test" method="POST">
-	  <label for="deck"></label>
-	  <select id="deck" name="deck_id">
-{% for deck in name %}
-		<option value="{{ deck[0] }}">{{ deck[1] }}, {{ deck[2] }}, {{ deck[3] }}</option>
-{% endfor %}
-	  </select>
-	  <input type="submit" value= "Mene testiin">
 
-	  </br></br>
-	  
-	</form>
-	-->
 {% endif %}
 	</br></br>
 	
