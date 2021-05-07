@@ -18,7 +18,11 @@ def checklogin():
     
 @app.route("/")
 def index():
-    return render_template("index.html")
+    result = db.session.execute("SELECT COUNT(*) FROM words")
+    word_count = result.fetchone()[0]
+    result = db.session.execute("SELECT COUNT(deck_id) FROM deck")
+    deck_count = result.fetchone()[0]
+    return render_template("index.html", deck_count = deck_count, word_count = word_count)
 
 #CSS Styles
 @app.route("/styles")
@@ -58,8 +62,8 @@ def logout():
 def select_deck():
     checklogin()   
     result = db.session.execute("SELECT deck.deck_id, deck.name, deck.difficulty, COUNT(words.word) FROM deck, words WHERE deck.deck_id = words.deck_id GROUP BY deck.deck_id")
-    name = result.fetchall()
-    return render_template("select_deck.html", name=name)
+    deck_info = result.fetchall()
+    return render_template("select_deck.html", deck_info=deck_info)
     
 #The test itself
 @app.route("/test")
@@ -79,7 +83,7 @@ def result():
     form_data = request.form
     
     #There is three arrays. One with all words, one with right answers and last with wrong answers
-    words = {}
+    all_words = {}
     rights = {}
     wrongs = {}
     deck_id = request.form["deck_id"]
@@ -90,28 +94,27 @@ def result():
     for key,value in form_data.items():
     	if key.startswith("translation_"):
     	    card_id = int(key.split("translation_")[1])
-    	    result = db.session.execute(f"SELECT translation, word FROM words WHERE card_id = {card_id}")
+    	    result = db.session.execute(f"SELECT translation, word, card_id FROM words WHERE card_id = {card_id}")
     	    result_list = result.fetchone()
     	    word = result_list[1]
     	    right_translation = result_list[0]
-    	    words[card_id] = value
+    	    all_words[word] = right_translation
     	    
     	    #Now we check if your guess is right or not.
-    	    if right_translation == value:
+    	    if right_translation.lower().strip() == value.lower().strip():
     	        rights[word] = right_translation
     	    else:
-    	        wrongs[word] = value
+    	        wrongs[word] = value    
     
-    
-    #Here we put all right answers and wrong aswers into database
+    #Here we put all right answers and wrong answers into database
     right_answers = len(rights)
     wrong_answers = len(wrongs)
     sql = "INSERT INTO test_results (user_id, deck_id, right_answers, wrong_answers) VALUES (:user_id, :deck_id, :right_answers, :wrong_answers)"
     db.session.execute(sql, {"user_id":user_id, "deck_id":deck_id, "right_answers":right_answers, "wrong_answers":wrong_answers})
     db.session.commit()
-    return render_template("result.html", rights = rights, wrongs = wrongs, deck_id = deck_id, words = words)
+    return render_template("result.html", rights = rights, wrongs = wrongs, deck_id = deck_id, all_words = all_words)
 
-#Get you in html where you can do a new user
+#Get you in html-page where you can do a new user
 @app.route("/new_user", methods=["GET"])
 def new_user():
     return render_template("new_user.html")
