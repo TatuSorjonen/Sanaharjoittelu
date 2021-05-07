@@ -7,7 +7,7 @@
 
 <h3> Testi opettajan näkökulmasta </h3>
 
-- Opettaja voi luoda uuden pakan, mihin hän sitten voi laittaa uusia Suomi-Englanti sanoja. Hän voi myös poistaa pakan tarvittaessa.
+- Opettaja voi luoda uuden pakan ja antaa sille vaikeusasteen, mihin hän sitten voi laittaa uusia Suomi-Englanti sanoja. Hän voi myös poistaa pakan tarvittaessa.
 - Opettaja pystyy tekemään testin, missä hän valitsee testiin pakan ja tämän jälkeen tämä tulostaa kaikki sanat taulukkoon, mihin hän kokeilee saada sanoja oikein. Tämän jälkeen käyttäjä saa tulokset, mitkä sanat meni oikein ja mitkä väärin ja montako meni oikein. 
 - Testin loppuvaiheessa käyttäjä voi antaa arvion testistä. Oman vapaavalintaisen kommentin, sekä arvosanan 1-5. 
 - Opettaja pystyy katsomaan oppilaiden tuloksia tai omia tuloksiaan, mutta ei pysty näkemään toisten opettajien tuloksia. 
