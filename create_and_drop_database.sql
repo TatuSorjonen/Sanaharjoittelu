@@ -14,8 +14,7 @@ CREATE TABLE dictionary_users (
 CREATE TABLE deck (
         deck_id SERIAL PRIMARY KEY,
         difficulty INTEGER NOT NULL,
-        name VARCHAR (20) NOT NULL CHECK (name <> ''),
-        user_id INTEGER REFERENCES dictionary_users
+        name VARCHAR (20) NOT NULL CHECK (name <> '')
 );
 
 CREATE TABLE words (
