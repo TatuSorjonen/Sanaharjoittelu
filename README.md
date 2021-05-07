@@ -20,7 +20,9 @@
 - Oppilaalla ei ole oikeuksia luoda uutta pakkaa, poistaa pakkaa tai lisätä siihen sanoja ja niiden käännöksiä.
 - Oppilas ei myöskään pysty katsomaan muiden oppilaiden tuloksia.
 
+[Voit testata Herokussa tästä](https://sanaharjoittelu.herokuapp.com/) <br />
 
+<h2> Tästä alaspäin tullaan poistamaan piakkoin </h2>
 
 <h3> Ensimmäinen vaihe: </h3>
 
