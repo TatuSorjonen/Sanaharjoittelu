@@ -14,14 +14,14 @@ CREATE TABLE dictionary_users (
 CREATE TABLE deck (
         deck_id SERIAL PRIMARY KEY,
         difficulty INTEGER NOT NULL,
-        name VARCHAR (20) NOT NULL CHECK (name <> '')
+        name VARCHAR (35) NOT NULL CHECK (name <> '')
 );
 
 CREATE TABLE words (
 	card_id SERIAL PRIMARY KEY,
 	deck_id INTEGER REFERENCES deck NOT NULL,
-	word VARCHAR (50) NOT NULL CHECK (word <> ''),
-	translation VARCHAR (50) NOT NULL CHECK (translation <> ''),
+	word VARCHAR (35) NOT NULL CHECK (word <> ''),
+	translation VARCHAR (35) NOT NULL CHECK (translation <> ''),
 	UNIQUE (deck_id, word)
 );
 
