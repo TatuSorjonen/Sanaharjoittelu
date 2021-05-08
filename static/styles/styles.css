@@ -29,8 +29,8 @@ h4 {
   
 p {
   color: black;
-  padding: 5px;
-  margin: 5px;
+  padding: 5px 0px 5px 0px;
+  margin: 5px 0px 5px 0px;
 }
 
 select {
@@ -110,6 +110,10 @@ th {
   word-wrap: break-word;
 }
 
+.error_message {
+  color: red;
+}
+
 .login_box {
   background-color: moccasin;
   float: right;
@@ -131,13 +135,13 @@ th {
 p#comment {
   padding: 0px;
   font-size: 18px;
-  margin: 0px 0px 0px 15px;
+  margin: 0px 0px 0px 0px;
 }
 
 p#grade {
   padding: 0px;
   font-size: 18px;
-  margin: 0px 0px 8px 15px;
+  margin: 0px 0px 10px 0px;
 }
 
 .hypertext_link {
