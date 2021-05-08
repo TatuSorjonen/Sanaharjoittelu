@@ -5,6 +5,10 @@
 	
 	<h1>Sanaharjoittelu</h1>
 	
+{% if error == True %}
+	<div class="error_message">Käyttäjän luominen epäonnistui</div>
+{% endif %}
+	
 {% if session.username %}
 
 	Olet kirjautunut sisään. Kirjaudu ensin ulos!</br></br>

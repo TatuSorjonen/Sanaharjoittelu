@@ -11,8 +11,10 @@
 	{% if word_count > 0 %}
 	<a href="/select_deck">Mene testiin</a><br></br>
 	{% else %}
-	Yhtään harjoitusta ei ole olemassa. </br>
-	Opettajana voit lisätä uusia harjoituksia!
+	Ei harjoituksia. </br>
+	{% if session.teacher == 0 %}
+	Tee itsellesi opettajatunnus lisätäksesi harjoituksia.
+	{% endif %}
 	</br></br>
 	{% endif %}
 	{% if session.teacher == 1 %}
@@ -31,6 +33,10 @@
 	<a href="/all_estimates">Katso arvostelut</a></br>
 {% else %}
 	<h1>Sanaharjoittelu</h1>
+	
+	{% if login_failed == True %}
+		<div class="error_message">Sisäänkirjautuminen epäonnistui</div>
+	{% endif %}
 	<form action="/login" method="POST">
 	<p>Käyttäjänimi:<br>
 	<input type="text" name="username" maxlength="20"></p>

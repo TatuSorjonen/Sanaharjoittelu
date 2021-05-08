@@ -8,6 +8,8 @@
 	<h1>Sanaharjoittelu</h1>
 	
 {% if session.teacher == 1 %}
+
+	{{ selected_deck.type }}
 	
 	<form action="/add_new_word" method="POST">
 	  
@@ -15,14 +17,18 @@
 	  <label for="deck"></label>
 	  <select id="deck" name="deck_id">
 {% for deck in name %}
+{% if selected_deck == deck[0] %}
+		<option value="{{ deck[0] }}" selected>{{ deck[1] }}</option>
+{% else %}
 		<option value="{{ deck[0] }}">{{ deck[1] }}</option>
+{% endif %}
 {% endfor %}
 	  </select>
 	  <p>Sana</p>
 	  <input type="text" name="word" maxlength="35"></p>
 	  <p>Käännös</p>
 	  <input type="text" name="translation" maxlength="35"></p>
-	  <input type="submit" value="Lisää kirjoitettu sana tietokantaan"></br></br>
+	  <input type="submit" value="Lisää sana pakkaan"></br></br>
 {% else %}
 	  Älä yritä huijata!!!! </br></br>
 {% endif %}
