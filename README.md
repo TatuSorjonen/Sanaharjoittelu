@@ -5,7 +5,7 @@
 <h3> Kirjautuminen </h3>
 
 - Käyttäjä voi tehdä uuden käyttäjän, joko oppilaana tai opettajana. Jos käyttäjänimi tai salasana on tyhjä, sovellus heittää virheilmoituksen.
-- Käyttäjä voi kirjautua sisään omalla käyttäjätunnuksellaan. Jos käyttäjätunnus on väärin, sovellus heittää virheilmoituksen asiasta. 
+- Käyttäjä voi kirjautua sisään omalla käyttäjätunnuksellaan. Jos käyttäjätunnus tai salasana on väärin, sovellus ei päästä kirjautumaan sisään. 
 
 <h3> Testi opettajan näkökulmasta </h3>
 
