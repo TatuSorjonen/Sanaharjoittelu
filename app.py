@@ -6,15 +6,12 @@ from os import getenv
 app = Flask(__name__)
 app.secret_key = getenv("SECRET_KEY")
 app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL")
-#app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://musenyxyafkmob:1949fc7810991bad9aca3776aec3ce6bab7e04aa5952f2268020e8ea77af669a@ec2-54-78-36-245.eu-west-1.compute.amazonaws.com:5432/dff2medqhagcfq"
-#app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://owkiheatxgznon:1038a0c805536c3d5ac8b8022074896b83c02bcc07a08a14b53f4c29d05701f0@ec2-79-125-30-28.eu-west-1.compute.amazonaws.com:5432/dcbkim9c0n99al"
 db = SQLAlchemy(app)
 
 #Check if username has logged in or not. If not this returns error.
 def checklogin():
     if len(session) == 0 or session["username"] == None or session["user_id"] == None:
     	raise Exception("Et ole kirjautunut sisään!")
-        #return render_template('error.html', error = 'Et ole kirjautunut sisään')
     
 @app.route("/")
 def index():
@@ -22,7 +19,8 @@ def index():
     word_count = result.fetchone()[0]
     result = db.session.execute("SELECT COUNT(deck_id) FROM deck")
     deck_count = result.fetchone()[0]
-    return render_template("index.html", deck_count = deck_count, word_count = word_count)
+    login_failed = False
+    return render_template("index.html", deck_count = deck_count, word_count = word_count, login_failed = login_failed)
 
 #CSS Styles
 @app.route("/styles")
@@ -34,10 +32,16 @@ def styles():
 def login():
     username = request.form["username"]
     password = request.form["password"]
+    login_failed = False
     
     #Takes user information from database where the username you provided is "username"
     result = db.session.execute(f"SELECT password, user_id, teacher FROM dictionary_users WHERE username = '{username}'")
     result_list = result.fetchone()
+    
+    #Check if username exists or not
+    if result_list == None:
+    	login_failed = True
+    	return render_template("index.html", login_failed = login_failed)
     right_password = result_list[0]
     user_id = result_list[1]
     teacher = result_list[2]
@@ -47,6 +51,9 @@ def login():
         session["username"] = username  
         session["user_id"] = user_id
         session["teacher"] = teacher
+    else:
+        login_failed = True
+        return render_template("index.html", login_failed = login_failed)
     return redirect("/") 
 
 #Deletes all sessions and returns back to login screen
@@ -89,7 +96,7 @@ def result():
     deck_id = request.form["deck_id"]
     user_id = session['user_id']
     
-    #Takes all keys and values from test.html and if it starts with translation_, we take a id one after split. 
+    #Takes all keys and values from test.html and if it starts with translation_, we take a id one, after split. 
     #And then we take all words and translations from database where card_id is splitted card_id.
     for key,value in form_data.items():
     	if key.startswith("translation_"):
@@ -117,7 +124,7 @@ def result():
 #Returns html-page where you can do a new user
 @app.route("/new_user", methods=["GET"])
 def new_user():
-    return render_template("new_user.html")
+    return render_template("new_user.html", error = False)
 
 #Adds new user into database
 @app.route("/add_new_user",methods=["POST"])
@@ -128,31 +135,40 @@ def add_new_user():
     
     #Check if your new user is a teacher or not and puts user in database
     if "teacher" in request.form:
-        teacher = 1        
-    sql = "INSERT INTO dictionary_users (username, password, teacher) VALUES (:username, :password, :teacher)"
-    db.session.execute(sql, {"username":username, "password":password, "teacher":teacher})
-    db.session.commit()
+        teacher = 1 
+    try:      
+    	sql = "INSERT INTO dictionary_users (username, password, teacher) VALUES (:username, :password, :teacher)"
+    	db.session.execute(sql, {"username":username, "password":password, "teacher":teacher})
+    	db.session.commit()
+    except:
+    	return render_template("new_user.html", error = True)
     return redirect("/")
 
-#Gets you in html-page where you can type new words into the database  
+#Returns html-page where you can type new words into the database  
 @app.route("/new_word", methods=["GET"])
 def new_word():
     checklogin()
+    selected_deck = -1
+    if request.args.get("deck_id") != None:
+    	selected_deck = int(request.args.get("deck_id"))
     result = db.session.execute("SELECT deck_id, name FROM deck")
     name = result.fetchall()
-    return render_template("new_word.html", name=name)
+    return render_template("new_word.html", name=name, selected_deck = selected_deck)
 
-#This Add new word what you writed into database    
+#This adds new word what you writed into database    
 @app.route("/add_new_word", methods=["POST"])
 def add_new_word():
-    checklogin()
+    checklogin()    
     word = request.form["word"]
     translation = request.form["translation"]
     deck_id = request.form["deck_id"]
-    sql = "INSERT INTO words (deck_id, word, translation) VALUES (:deck_id, :word, :translation)"
-    result = db.session.execute(sql, {"deck_id":deck_id, "word":word, "translation":translation})
-    db.session.commit()
-    return redirect("/new_word")
+    try:
+    	sql = "INSERT INTO words (deck_id, word, translation) VALUES (:deck_id, :word, :translation)"
+    	result = db.session.execute(sql, {"deck_id":deck_id, "word":word, "translation":translation})
+    	db.session.commit()
+    except:
+    	raise Exception("Sanan '" + word + "' lisääminen epäonnistui. (Älä anna jo pakassa olevaa sanaa tai tyhjiä arvoja.)")
+    return redirect(f"/new_word?deck_id={deck_id}")
 
 #Returns html-page where you can add new deck    
 @app.route("/new_deck", methods=["GET"])
@@ -166,9 +182,12 @@ def add_new_deck():
     checklogin()   
     name = request.form["name"]
     difficulty = request.form["difficulty"]
-    sql = "INSERT INTO deck (difficulty, name) VALUES (:difficulty, :name)"
-    result = db.session.execute(sql, {"difficulty":difficulty, "name":name})
-    db.session.commit()
+    try:
+    	sql = "INSERT INTO deck (difficulty, name) VALUES (:difficulty, :name)"
+    	result = db.session.execute(sql, {"difficulty":difficulty, "name":name})
+    	db.session.commit()
+    except:
+    	raise Exception("Pakan '" + name + "' lisääminen epäonnistui. (Älä anna olemassa olevaa pakan nimeä tai tyhjää nimeä.)")
     return redirect("/")
 
 #Returns html-page where you can add a new estimate into the test    
