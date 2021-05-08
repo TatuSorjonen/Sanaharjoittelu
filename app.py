@@ -114,12 +114,12 @@ def result():
     db.session.commit()
     return render_template("result.html", rights = rights, wrongs = wrongs, deck_id = deck_id, all_words = all_words)
 
-#Get you in html-page where you can do a new user
+#Returns html-page where you can do a new user
 @app.route("/new_user", methods=["GET"])
 def new_user():
     return render_template("new_user.html")
 
-#Add new user into database
+#Adds new user into database
 @app.route("/add_new_user",methods=["POST"])
 def add_new_user():
     username = request.form["username"]
