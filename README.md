@@ -1,5 +1,9 @@
 # Sanaharjoittelu
 
+<h1> Sovellus </h1>
+
+- Sovellus on toimiva sanaharjoittelu kenelle tahansa, mihin voit laittaa esimerkiksi omia suomi-englanti käännöksiä, mitkä ovat sinulle vaikeita. Mitkä vaan sanat ja käännökset käyvät tai voit käyttää sovellusta muihin sana-käännös testeihin mitä haluat testata tarvittaessa.
+
 <h3> Kirjautuminen </h3>
 
 - Käyttäjä voi tehdä uuden käyttäjän, joko oppilaana tai opettajana. Jos käyttäjänimi tai salasana on tyhjä, sovellus heittää virheilmoituksen.
