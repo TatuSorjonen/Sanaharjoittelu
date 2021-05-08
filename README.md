@@ -24,5 +24,8 @@
 - Oppilaalla ei ole oikeuksia luoda uutta pakkaa, poistaa pakkaa tai lisätä siihen sanoja ja niiden käännöksiä.
 - Oppilas ei myöskään pysty katsomaan muiden oppilaiden tuloksia.
 
+
+Virhesivut on tehty tarkoituksella, jotta käyttäjä näkee mikä on mennyt vikaan. Esimerkiksi, jos käyttäjä on jo tietokannassa, niin tämä virhe kertoo sen mikä on mennyt vikaan.
+
 [Voit testata sovellusta Herokussa tästä](https://sanaharjoittelu.herokuapp.com/) <br />
 
