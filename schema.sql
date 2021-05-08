@@ -8,7 +8,7 @@ CREATE TABLE dictionary_users (
 CREATE TABLE deck (
         deck_id SERIAL PRIMARY KEY,
         difficulty INTEGER NOT NULL,
-        name VARCHAR (35) NOT NULL CHECK (name <> '')
+        name VARCHAR (35) UNIQUE NOT NULL CHECK (name <> '')
 );
 
 CREATE TABLE words (
