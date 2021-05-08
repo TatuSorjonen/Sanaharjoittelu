@@ -10,23 +10,24 @@
 	<h3>Tulokset</h3>
 	<table>
 	  <tr>
-	    <th>Oikein ({{rights|length}} kpl)</th>
-	    <th>Väärin ({{wrongs|length}} kpl)</th>
+	    <th style="min-width:200px;">Oikein ({{rights|length}} kpl)</th>
+	    <th style="min-width:200px;">Väärin ({{wrongs|length}} kpl)</th>
 	  </tr>
 	  <tr>
 	    <td>
 {% for right in rights %}
-	{{right}} = {{rights[right]}}</br>
+	"{{right}}" = "{{rights[right]}}"</br>
 {% endfor %}
 	    </td>
 	    <td>
 {% for wrong in wrongs %}
-	{{wrong}} = {{all_words[wrong]}}</br>
+	"{{wrong}}" = "{{all_words[wrong]}}" (Vastasit: "{{ wrongs[wrong] }}")</br>
 {% endfor %}
 	    </td>
 	</tr>
 	</table>
 	</br></br>
+	<a href="/select_deck">Testin valintaan</a></br></br>
 	<a href="/estimate?deck_id={{deck_id}}">Anna palautetta</a></br></br>
 	
 	

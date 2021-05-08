@@ -21,7 +21,7 @@
 {% for words in word %}
 		  <tr>
 	  	    <td>{{ words[1] }}</td>
-	  	    <td><input type="text" name="translation_{{ words[0] }}"></td>
+	  	    <td><input type="text" name="translation_{{ words[0] }}" maxlength="35"></td>
 	  	  </tr>
 	  	
 {% endfor %}
