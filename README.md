@@ -1,15 +1,17 @@
 # Sanaharjoittelu
 
 - Sovellus on toimiva sanaharjoittelu kenelle tahansa, mihin voit laittaa esimerkiksi omia suomi-englanti käännöksiä, mitkä ovat sinulle vaikeita. Mitkä vaan sanat ja käännökset käyvät tai voit käyttää sovellusta muihin sana-käännös testeihin mitä haluat testata tarvittaessa.
+- Kun teet ensimmäisen käyttäjäsi, suosittelen tekemään opettajan, jotta sovelluksen kaikki ominaisuudet saadaan hyvin näkyviin. Oppilas ei pysty tekemään paljoa muuta, kuin opettajien tekemiä testejä tai katsomaan arvosteluja tai omia tuloksiaan. Melkein kaikki oikeudet ovat opettajalla.
 
 <h3> Kirjautuminen </h3>
 
-- Käyttäjä voi tehdä uuden käyttäjän, joko oppilaana tai opettajana. Jos käyttäjänimi tai salasana on tyhjä, sovellus heittää virheilmoituksen.
-- Käyttäjä voi kirjautua sisään omalla käyttäjätunnuksellaan. Jos käyttäjätunnus tai salasana on väärin, sovellus ei päästä kirjautumaan sisään. 
+- Käyttäjä voi tehdä uuden käyttäjän, joko oppilaana tai opettajana.
+- Käyttäjä voi kirjautua sisään omalla käyttäjätunnuksellaan. 
 
 <h3> Testi opettajan näkökulmasta </h3>
 
 - Opettaja voi luoda uuden pakan ja antaa sille vaikeusasteen, mihin hän sitten voi laittaa uusia sanoja ja niiden käännöksiä. Hän voi myös poistaa pakan tarvittaessa.
+- Opettaja voi myös poistaa pakasta sanoja halutessaan.
 - Käyttäjä ei voi tehdä testiä ennen kuin opettaja on luonut pakan, missä on sanoja.
 - Opettaja pystyy tekemään testin, missä hän valitsee testiin pakan ja tämän jälkeen tämä tulostaa kaikki sanat taulukkoon, mihin hän kokeilee saada sanoja oikein. Tämän jälkeen käyttäjä saa tulokset, mitkä sanat menivät oikein ja mitkä väärin ja montako meni oikein sekä mikä olisi ollut oikea vastaus.
 - Tuloksien yhteydesä käyttäjä voi mennä testivaiheen alkuun, missä hän voi joko valita uuden testin tai tehdä saman 
@@ -24,8 +26,7 @@
 - Oppilaalla ei ole oikeuksia luoda uutta pakkaa, poistaa pakkaa tai lisätä siihen sanoja ja niiden käännöksiä.
 - Oppilas ei myöskään pysty katsomaan muiden oppilaiden tuloksia.
 
-
-Virhesivut on tehty tarkoituksella, jotta käyttäjä näkee mikä on mennyt vikaan. Esimerkiksi, jos käyttäjä on jo tietokannassa, niin tämä virhe kertoo sen mikä on mennyt vikaan.
+Jos yrität huijata oppilaana esimerkiksi menemällä pakkojen luomista varten tarkoitetulle sivulle ilman, että sovelluksessa on linkkiä sinne. Tämä ei onnistunu ja sivu heittää ilmoituksen "Älä yritä huijata".
 
 [Voit testata sovellusta Herokussa tästä](https://sanaharjoittelu.herokuapp.com/) <br />
 
