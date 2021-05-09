@@ -243,6 +243,32 @@ def delete_one_deck():
     db.session.commit()
     return redirect("/")
 
+#Returns html-page where you can select a deck from which to delete the word.  
+@app.route("/select_deck_word_remove")
+def select_deck_word_remove():
+    checklogin()
+    result = db.session.execute("SELECT deck_id, name, difficulty FROM deck")
+    decks = result.fetchall()
+    return render_template("select_deck_word_remove.html", decks = decks)
+
+#Returns html-page where you can remove one word.    
+@app.route("/delete_word", methods=["POST"])
+def delete_word():
+    checklogin()
+    deck_id = int(request.form["deck_id"])
+    result = db.session.execute(f"SELECT card_id, word, translation FROM words WHERE deck_id = {deck_id}")
+    words = result.fetchall()
+    return render_template("delete_selected_word.html", words = words)
+
+#Removes one word.    
+@app.route("/delete_selected_word", methods=["POST"])
+def delete_selected_word():
+    checklogin()
+    word_id = int(request.form["word_id"])
+    db.session.execute(f"DELETE FROM words WHERE card_id = {word_id}")
+    db.session.commit()
+    return redirect("/")
+
 #Returns hltm-page where the teacher can choose one student results  
 @app.route("/select_one_student")
 def select_one_student():
