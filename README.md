@@ -17,15 +17,15 @@
 - Opettaja voi myös poistaa pakasta sanoja halutessaan.
 - Käyttäjä ei voi tehdä testiä ennen kuin opettaja on luonut pakan, missä on sanoja.
 - Opettaja pystyy tekemään testin, missä hän valitsee testiin pakan ja tämän jälkeen tämä tulostaa kaikki sanat taulukkoon, mihin hän kokeilee saada sanoja oikein. Tämän jälkeen käyttäjä saa tulokset, mitkä sanat menivät oikein ja mitkä väärin ja montako meni oikein sekä mikä olisi ollut oikea vastaus.
-- Tuloksien yhteydesä käyttäjä voi mennä testivaiheen alkuun, missä hän voi joko valita uuden testin tai tehdä saman 
-- Testin loppuvaiheessa käyttäjä voi antaa arvion testistä. Oman vapaavalintaisen kommentin, sekä arvosanan 1-5. 
+- Tuloksien yhteydesä käyttäjä voi mennä testivaiheen alkuun, missä hän voi joko valita uuden testin tai tehdä saman testin.
+- Testin loppuvaiheessa käyttäjä voi antaa arvion testistä, oman vapaavalintaisen kommentin, sekä arvosanan 1-5. 
 - Opettaja pystyy katsomaan oppilaiden tuloksia tai omia tuloksiaan, mutta ei pysty näkemään toisten opettajien tuloksia. 
 - Käyttäjä näkee kaikki arvostelut jokaisesta pakasta.
 
 
 <h3> Testi oppilaan näkökulmasta </h3>
 
-- Oppilas voi vain tehdä testin samalla tavalla kuin opettaja ja katsoa omia tuloksiaan, sekä katsoa arvioinnit.
+- Oppilas voi vain tehdä testin samalla tavalla kuin opettaja ja katsoa omia tuloksiaan, sekä katsomaan arvioinnit.
 - Oppilaalla ei ole oikeuksia luoda uutta pakkaa, poistaa pakkaa tai lisätä siihen sanoja ja niiden käännöksiä. Ei ole myöskään oikeutta poistaa sanoja.
 - Oppilas ei pysty katsomaan muiden oppilaiden tuloksia.
 
