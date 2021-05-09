@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+{% include 'html_header.html' %}
+  <body>
+  	
+{% include 'html_loginbox.html' %}
+	
+	<h1>Sanaharjoittelu</h1>
+	
+{% if session.teacher == 1 %}
+	
+	<h3>Valitse poistettava sana</h3> </br>
+	
+	Sana, käännös
+	
+	<form action="/delete_selected_word" method="POST">
+	  </br>
+	  <label for="word"></label>
+	  <select id="word" name="word_id">
+{% for word in words %}
+		<option value="{{ word[0] }}">{{ word[1] }}, {{ word[2] }}</option>
+{% endfor %}
+	  </select>
+	  <input type="submit" value= "Poista"></br></br>
+{% else %}
+	  Älä yritä huijata!!!!</br></br>
+{% endif %}
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+{% include 'html_header.html' %}
+  <body>
+  	
+{% include 'html_loginbox.html' %}
+	
+	<h1>Sanaharjoittelu</h1>
+	
+{% if session.teacher == 1 %}
+	
+	<h3>Valitse pakka mistä poistetaan sanoja</h3> </br>
+	
+	Nimi, vaikeusaste
+	
+	<form action="/delete_word" method="POST">
+	  </br>
+	  <label for="deck"></label>
+	  <select id="deck" name="deck_id">
+{% for deck in decks %}
+		<option value="{{ deck[0] }}">{{ deck[1] }}, {{ deck[2] }}</option>
+{% endfor %}
+	  </select>
+	  <input type="submit" value= "Valitse pakka"></br></br>
+{% else %}
+	  Älä yritä huijata!!!!</br></br>
+{% endif %}
+	</form>
+	
+</body>
+</html>
