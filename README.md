@@ -21,6 +21,7 @@
 - Testin loppuvaiheessa käyttäjä voi antaa arvion testistä, oman vapaavalintaisen kommentin, sekä arvosanan 1-5. 
 - Opettaja pystyy katsomaan oppilaiden tuloksia tai omia tuloksiaan, mutta ei pysty näkemään toisten opettajien tuloksia. 
 - Käyttäjä näkee kaikki arvostelut jokaisesta pakasta.
+- Opettajat eivät voi poistaa toistensa pakkoja.
 
 
 <h3> Testi oppilaan näkökulmasta </h3>
@@ -36,9 +37,21 @@
 - Pakka taulussa nimet ovat UNIQUE eli ei voi olla saman nimisiä pakkoja ja niiden nimi on laitettu olemaan maksimissaan 35 merkkiä pitkä.
 - Sanat taulu ottaa viitteen pakka taulusta ja sanat sekä käännökset on laitettu maksimi 35 merkkiä pitkiksi (Eivät voi myöskään olla tyhjiä).
 - test_results taulu ottaa viiteen pakka ja käyttäjä tauluista. Pitää yllä kuinka monta oikein ja väärin käyttäjä on saanut.
-- estimate taulu ottaa myös viitteen pakka ja käyttäjä tauluihin. Siinä on myös käyttäjän antama arvosana sekä max 1000 merkkiä pitkä arvostelu testistä.  
+- estimate taulu ottaa myös viitteen pakka ja käyttäjä tauluihin. Siinä on myös käyttäjän antama arvosana sekä max 1000 merkkiä pitkä arvostelu testistä.
+
+
+<h3> Tietoturva </h3>
+
+- SQL-injektion uhka estetty.
+- XSS-haavoittuvuus estetty.
+- CSRF-haavoittuvuus estetty.
+- Salasana tehty hashayksellä, eli antaa tietokantaan sattunaisen merkkijonon.
 
 Jos yrität huijata oppilaana esimerkiksi menemällä pakkojen luomista varten tarkoitetulle sivulle ilman, että sovelluksessa on linkkiä sinne. Tämä ei onnistunu ja sivu heittää ilmoituksen "Älä yritä huijata".
+
+Koodi on jaettu kolmeen osaan. Apumetodit, tietokantakyselyt sekä kaikki muut.
+
+CSS tyylejä käytetty sekä javascriptia.
 
 [Voit testata sovellusta Herokussa tästä](https://sanaharjoittelu.herokuapp.com/) <br />
 
