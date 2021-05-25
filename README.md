@@ -2,7 +2,7 @@
 
 - Sovellus on toimiva sanaharjoittelu kenelle tahansa, mihin voit laittaa esimerkiksi omia suomi-englanti käännöksiä, mitkä ovat sinulle vaikeita. Mitkä vaan sanat ja käännökset käyvät tai voit käyttää sovellusta muihin sana-käännös testeihin mitä haluat testata tarvittaessa.
 - Kun teet ensimmäisen käyttäjäsi, suosittelen tekemään opettajan, jotta sovelluksen kaikki ominaisuudet saadaan hyvin näkyviin. Oppilas ei pysty tekemään paljoa muuta, kuin opettajien tekemiä testejä tai katsomaan arvosteluja tai omia tuloksiaan. Melkein kaikki oikeudet ovat opettajalla.
-- Kuka tahansa voi tehdä opettaja käyttäjän ja opettajat voivat muuttaa toistensa tekemiä pakkoja.
+- Kuka tahansa voi tehdä opettaja käyttäjän ihan vain testauksen takia. Normaalisti kukaan muu ei pystyisi tekemään opettajaa kuin admininin oikeuksille annetut käyttäjät.
 
 
 <h3> Kirjautuminen </h3>
