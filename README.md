@@ -33,23 +33,47 @@
 
 <h3> Taulut </h3>
 
-<h4> Dictionary_users </h4>
+<h4> dictionary_users </h4>
 <ul>
   <li>user_id: Pääavain</li>
-  <li>username: Käyttäjätunnus, UNIQUE, NOT NULL</li>
-  <li>password: Salasana hajautettuna, NOT NULL</li>
+  <li>username: Käyttäjätunnus, UNIQUE, NOT NULL, Ei myöskään tyhjä, maksimipituus 20 merkkiä</li>
+  <li>password: Salasana hajautettuna, NOT NULL, Ei myöskään tyhjä</li>
   <li>teacher: Onko opettaja, '1' jos opettaja, muutoin 0, NOT NULL</li>
 </ul>
-Käyttäjätunnukset ovat UNIQUE eli ei voi olla monta saman nimistä käyttäjää. Käyttäjätunnukselle on laitettu 20 merkin raja sekä salasanalle myös.
 
 <h4> deck </h4>
 <ul>
-  <li>deck_id</li>
-  <li
-- Pakka taulussa nimet ovat UNIQUE eli ei voi olla saman nimisiä pakkoja ja niiden nimi on laitettu olemaan maksimissaan 35 merkkiä pitkä.
-- Sanat taulu ottaa viitteen pakka taulusta ja sanat sekä käännökset on laitettu maksimi 35 merkkiä pitkiksi (Eivät voi myöskään olla tyhjiä).
-- test_results taulu ottaa viiteen pakka ja käyttäjä tauluista. Pitää yllä kuinka monta oikein ja väärin käyttäjä on saanut.
-- estimate taulu ottaa myös viitteen pakka ja käyttäjä tauluihin. Siinä on myös käyttäjän antama arvosana sekä max 1000 merkkiä pitkä arvostelu testistä.
+  <li>deck_id: Pääavain</li>
+  <li>user_id: Viite dictionary_users taulun pääavaimeen, NOT NULL</li>
+  <li>difficulty: Pakan vaikeusaste, NOT NULL</li>
+  <li>name: Pakan nimi UNIQUE, NOT NULL, Ei myöskään tyhjä, maksimipituus 35 merkkiä</li>
+</ul>
+
+<h4> words </h4>
+<ul>
+  <li>card_id: Pääavain</li>
+  <li>deck_id: Viite deck taulun pääavaimeen, NOT NULL</li>
+  <li>word: Sana, UNIQUE jokaisessa pakassa, NOT NULL, Ei myöskään tyhjä, maksimipituus 35 merkkiä</li>
+  <li>translation: Sanan käännös, NOT NULL, Ei myöskään tyhjä, maksimipituus 35 merkkiä</li>
+</ul>
+
+<h4> test_results </h4>
+<ul>
+  <li>test_id: Pääavain</li>
+  <li>user_id: Viite dictionary_users taulun pääavaimeen, NOT NULL</li>
+  <li>deck_id: Viite deck taulun pääavaimeen, NOT NULL</li>
+  <li>right_answers: Oikeiden vastauksien lukumäärä, NOT NULL</li>
+  <li>wrong_answers_ Väärien vastauksien lukumäärä, NOT NULL</li>
+</ul>
+
+<h4> estimate </h4>
+<ul>
+  <li>estimate_id: Pääavain</li>
+  <li>user_id: Viite dictionary_users taulun pääavaimeen, NOT NULL</li>
+  <li>deck_id: Viite deck taulun pääavaimeen, NOT NULL</li>
+  <li>grade: Käyttäjän antama arvosana testille, NOT NULL </li>
+  <li>comment: Käyttäjän antama kommentti testille, maksimipituus 1000 merkkiä</li>
+</ul>
 
 
 <h3> Tietoturva </h3>
