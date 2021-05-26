@@ -1,10 +1,10 @@
 # Sanaharjoittelu
 
-- Sovellus on toimiva sanaharjoittelu. Voit laittaa esimerkiksi omia suomi-englanti käännöksiä, jotka ovat sinulle vaikeita. Kaikki sanat ja käännökset käyvät tai voit käyttää sovellusta muihin sana-käännös testeihin, joita haluat testata tarvittaessa.
+- Sovellus on toimiva sanaharjoittelu. Voit harjoitella esimerkiksi omia suomi-englanti käännöksiä, jotka ovat sinulle vaikeita. Kaikki sanat ja käännökset käyvät tai voit käyttää sovellusta muihin sana-käännös testeihin, joita haluat testata.
 - Kun teet ensimmäisen käyttäjäsi, suosittelen tekemään opettajan, jotta sovelluksen kaikki ominaisuudet saadaan hyvin näkyviin. Oppilas ei pysty tekemään paljoa muuta, kuin opettajien tekemiä testejä, katsomaan arvosteluja tai omia tuloksiaan. Melkein kaikki oikeudet ovat opettajalla.
 - Kuka tahansa voi tehdä itselleen opettaja käyttäjän testausta varten. Normaalisti kukaan muu ei pystyisi tekemään opettajaa kuin admininin oikeuksille annetut käyttäjät.
 
-- Ohjelman Python koodi on jaettu kolmeen osaan: apumetodit, tietokantakyselyt sekä kaikki muut.
+- Ohjelman Python koodi on jaettu kolmeen osaan: apumetodit, tietokantakyselyt sekä kyleinen sovellus ja reititys logiikka.
 - CSS tyyleillä on toteutettu HTML-sivujen ulkoasu.
 - Javascriptilla tarkistetaan etteivät lomakkeen syötekentät ole tyhjiä. Maksimipituus tarkistetaan HTML-sivulla ja tietokannassa.
 
