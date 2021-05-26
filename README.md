@@ -4,6 +4,10 @@
 - Kun teet ensimmäisen käyttäjäsi, suosittelen tekemään opettajan, jotta sovelluksen kaikki ominaisuudet saadaan hyvin näkyviin. Oppilas ei pysty tekemään paljoa muuta, kuin opettajien tekemiä testejä, katsomaan arvosteluja tai omia tuloksiaan. Melkein kaikki oikeudet ovat opettajalla.
 - Kuka tahansa voi tehdä itselleen opettaja käyttäjän testausta varten. Normaalisti kukaan muu ei pystyisi tekemään opettajaa kuin admininin oikeuksille annetut käyttäjät.
 
+Koodi on jaettu kolmeen osaan. Apumetodit, tietokantakyselyt sekä kaikki muut.
+
+CSS tyylejä käytetty sekä javascriptia.
+
 
 <h3> Kirjautuminen </h3>
 
@@ -82,10 +86,6 @@
 - XSS-haavoittuvuus estetty käyttämällä Flaskin sivupohjia. Hyökkääjä ei voi muuttaa HTML-sivua.
 - CSRF-haavoittuvuus estetty. Kirjautuessa sisään käyttäjän sessioon laitetaan CSRF_token jota käytetään myös html formissa ja lomaketta vastaanotettaessa tarkastetaan ovatko nämä samat.
 - Salasanaa ei tallenneta tietokantaan selkokielisenä.
-
-Koodi on jaettu kolmeen osaan. Apumetodit, tietokantakyselyt sekä kaikki muut.
-
-CSS tyylejä käytetty sekä javascriptia.
 
 [Voit testata sovellusta Herokussa tästä](https://sanaharjoittelu.herokuapp.com/) <br />
 
