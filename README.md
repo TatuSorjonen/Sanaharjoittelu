@@ -35,12 +35,17 @@
 
 <h4> Dictionary_users </h4>
 <ul>
-  <li>user_id</li>
-  <li>username</li>
-  <li>password</li>
-  <li>teacher</li>
+  <li>user_id: Pääavain</li>
+  <li>username: Käyttäjätunnus, UNIQUE, NOT NULL</li>
+  <li>password: Salasana hajautettuna, NOT NULL</li>
+  <li>teacher: Onko opettaja, '1' jos opettaja, muutoin 0, NOT NULL</li>
 </ul>
-- Käyttäjätunnukset ovat UNIQUE eli ei voi olla monta saman nimistä käyttäjää. Käyttäjätunnukselle on laitettu 20 merkin raja sekä salasanalle myös.
+Käyttäjätunnukset ovat UNIQUE eli ei voi olla monta saman nimistä käyttäjää. Käyttäjätunnukselle on laitettu 20 merkin raja sekä salasanalle myös.
+
+<h4> deck </h4>
+<ul>
+  <li>deck_id</li>
+  <li
 - Pakka taulussa nimet ovat UNIQUE eli ei voi olla saman nimisiä pakkoja ja niiden nimi on laitettu olemaan maksimissaan 35 merkkiä pitkä.
 - Sanat taulu ottaa viitteen pakka taulusta ja sanat sekä käännökset on laitettu maksimi 35 merkkiä pitkiksi (Eivät voi myöskään olla tyhjiä).
 - test_results taulu ottaa viiteen pakka ja käyttäjä tauluista. Pitää yllä kuinka monta oikein ja väärin käyttäjä on saanut.
