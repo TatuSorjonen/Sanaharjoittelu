@@ -78,12 +78,10 @@
 
 <h3> Tietoturva </h3>
 
-- SQL-injektion uhka estetty.
-- XSS-haavoittuvuus estetty.
-- CSRF-haavoittuvuus estetty.
-- Salasana tehty hashayksellä, eli antaa tietokantaan sattunaisen merkkijonon.
-
-Jos yrität huijata oppilaana esimerkiksi menemällä pakkojen luomista varten tarkoitetulle sivulle ilman, että sovelluksessa on linkkiä sinne. Tämä ei onnistunu ja sivu heittää ilmoituksen "Älä yritä huijata".
+- SQL-injektion uhka estetty SQL parametrien avulla. Hyökkääjä ei voi muuttaa SQL lausetta omilla syötteillään.
+- XSS-haavoittuvuus estetty käyttämällä Flaskin sivupohjia. Hyökkääjä ei voi muuttaa HTML-sivua.
+- CSRF-haavoittuvuus estetty. Kirjautuessa sisään käyttäjän sessioon laitetaan CSRF_token jota käytetään myös html formissa ja lomaketta vastaanotettaessa tarkastetaan ovatko nämä samat.
+- Salasanaa ei tallenneta tietokantaan selkokielisenä.
 
 Koodi on jaettu kolmeen osaan. Apumetodit, tietokantakyselyt sekä kaikki muut.
 
