@@ -4,9 +4,9 @@
 - Kun teet ensimmäisen käyttäjäsi, suosittelen tekemään opettajan, jotta sovelluksen kaikki ominaisuudet saadaan hyvin näkyviin. Oppilas ei pysty tekemään paljoa muuta, kuin opettajien tekemiä testejä, katsomaan arvosteluja tai omia tuloksiaan. Melkein kaikki oikeudet ovat opettajalla.
 - Kuka tahansa voi tehdä itselleen opettaja käyttäjän testausta varten. Normaalisti kukaan muu ei pystyisi tekemään opettajaa kuin admininin oikeuksille annetut käyttäjät.
 
-Koodi on jaettu kolmeen osaan. Apumetodit, tietokantakyselyt sekä kaikki muut.
-
-CSS tyylejä käytetty sekä javascriptia.
+- Ohjelman Python koodi on jaettu kolmeen osaan: apumetodit, tietokantakyselyt sekä kaikki muut.
+- CSS tyyleillä on toteutettu HTML-sivujen ulkoasu.
+- Javascriptilla tarkistetaan etteivät lomakkeen syötekentät ole tyhjiä. Maksimipituus tarkistetaan HTML-sivulla ja tietokannassa.
 
 
 <h3> Kirjautuminen </h3>
