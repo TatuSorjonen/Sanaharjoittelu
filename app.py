@@ -180,7 +180,7 @@ def add_new_word():
     	return redirect(f"new_word?deck_id={deck_id}&errorcode=2")
     	
     user_id = database.getdeckowner(db, deck_id)
-    userloggedin(user_id)
+    utils.userloggedin(user_id, session)
     
     database.insertword(db, deck_id, word, translation)
     
@@ -263,7 +263,7 @@ def delete_one_deck():
     utils.check_csrf_token(request.form, session)
     deck_id = int(request.form["deck_id"])
     user_id = database.getuserbasedondeck(db, deck_id)
-    userloggedin(user_id)
+    utils.userloggedin(user_id, session)
     database.deletedeck(db, deck_id)
     return redirect("/")
 
@@ -284,7 +284,7 @@ def delete_word():
     utils.check_csrf_token(request.form, session)
     deck_id = int(request.form["deck_id"])
     user_id = database.getuserbasedondeck(db, deck_id)
-    userloggedin(user_id)
+    utils.userloggedin(user_id, session)
     words = database.getselectedwords(db, deck_id)
     return render_template("delete_selected_word.html", words = words, deck_id = deck_id)
 
@@ -296,7 +296,7 @@ def delete_selected_word():
     deck_id = request.form["deck_id"]
     
     user_id = database.getuserbasedondeck(db, deck_id)
-    userloggedin(user_id)
+    utils.userloggedin(user_id, session)
     word_id = int(request.form["word_id"])
     database.deleteword(db, word_id)
     
@@ -312,8 +312,8 @@ def select_one_student():
 #After selection, retrieves all the results of the selected student and takes you to an html-page    
 @app.route("/student_result", methods=["POST"])
 def student_result():
-    utils.checklogin()
-    utils.check_csrf_token(request.form)
+    utils.checklogin(session)
+    utils.check_csrf_token(request.form, session)
     student_id = int(request.form["student_id"])
     
     student_results = database.getstudentresults(db, student_id)
@@ -324,7 +324,7 @@ def student_result():
 #This retrieves all the results of the logged-in user  
 @app.route("/own_results")
 def own_results():
-    utils.checklogin()
+    utils.checklogin(session)
     student_id = session['user_id']
     student_results = database.getstudentresults(db, student_id)
     return render_template("/own_results.html", student_results = student_results)
