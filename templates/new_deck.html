@@ -7,11 +7,15 @@
 
 	<h1>Sanaharjoittelu</h1>
 	
+{% if error == True and errorcode == 3 %}
+	<div class="error_message">Pakka on jo olemassa</div>
+{% endif %}
+	
 {% if session.teacher == 1 %}
 
-	<form action="/add_new_deck" method="POST">
+	<form action="/add_new_deck" method="POST" onsubmit="return checkdeck(this)">
 	  <p> Lisää nimi pakalle </p>
-	  <input type="text" name="name" maxlength="35"></p>
+	  <input type="text" name="deck" maxlength="35"></p>
 	  <p> Kerro kuinka vaikea tämä pakka on asteikolla 1-5 </p>
 	  <label for="difficulty"></label>
 	  <select id="difficulty" name="difficulty">
@@ -26,6 +30,7 @@
 {% else %}
 	Älä yritä huijata!!!! </br></br>
 {% endif %}
+	  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 	</form>
 
 

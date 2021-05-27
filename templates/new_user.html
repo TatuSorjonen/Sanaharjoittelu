@@ -5,8 +5,8 @@
 	
 	<h1>Sanaharjoittelu</h1>
 	
-{% if error == True %}
-	<div class="error_message">Käyttäjän luominen epäonnistui</div>
+{% if error == True and errorcode == 1 %}
+	<div class="error_message">Käyttäjä on jo olemassa</div>
 {% endif %}
 	
 {% if session.username %}
@@ -16,7 +16,7 @@
 	
 {% else %}
 	
-	<form action="/add_new_user" method="POST">
+	<form action="/add_new_user" method="POST" onsubmit="return checklogin(this)">
 	  <p>Uuden käyttäjän käyttäjänimi</p>
 	  <input type="text" name="username" maxlength="20"></p>
 	  <p>Salasana:</p>

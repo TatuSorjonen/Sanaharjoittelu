@@ -22,6 +22,7 @@
 	  <p>Anna palaute</p>
 	  <textarea name="estimate" rows="5" cols="50" maxlength="1000"></textarea></br></br>
 	  <input type="submit" value="Lähetä palaute"></br></br>
+	  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 	</form>
 	
 </body>

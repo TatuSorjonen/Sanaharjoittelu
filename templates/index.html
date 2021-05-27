@@ -39,7 +39,7 @@
 	{% if login_failed == True %}
 		<div class="error_message">Sisäänkirjautuminen epäonnistui</div>
 	{% endif %}
-	<form action="/login" method="POST">
+	<form action="/login" method="POST" onsubmit="return checklogin(this)">
 	<p>Käyttäjänimi:<br>
 	<input type="text" name="username" maxlength="20"></p>
 	<p>Salasana:<br>

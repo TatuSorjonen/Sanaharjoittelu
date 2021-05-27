@@ -7,16 +7,20 @@
 	
 	<h1>Sanaharjoittelu</h1>
 	
+{% if errorcode == 2 %}
+	<div class="error_message">Sana on jo pakassa</div>
+{% endif %}
+	
 {% if session.teacher == 1 %}
 
 	{{ selected_deck.type }}
 	
-	<form action="/add_new_word" method="POST">
+	<form action="/add_new_word" method="POST" onsubmit="return checkword(this)">
 	  
 	  Valitse pakka</br></br>
 	  <label for="deck"></label>
 	  <select id="deck" name="deck_id">
-{% for deck in name %}
+{% for deck in deck_list %}
 {% if selected_deck == deck[0] %}
 		<option value="{{ deck[0] }}" selected>{{ deck[1] }}</option>
 {% else %}
@@ -29,6 +33,7 @@
 	  <p>Käännös</p>
 	  <input type="text" name="translation" maxlength="35"></p>
 	  <input type="submit" value="Lisää sana pakkaan"></br></br>
+	  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 {% else %}
 	  Älä yritä huijata!!!! </br></br>
 {% endif %}
