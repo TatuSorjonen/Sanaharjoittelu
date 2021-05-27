@@ -1,12 +1,13 @@
 CREATE TABLE dictionary_users (
 	user_id SERIAL PRIMARY KEY,
 	username VARCHAR (20) UNIQUE NOT NULL CHECK (username <> ''),
-	password VARCHAR (20) NOT NULL CHECK (password <> ''),
+	password TEXT NOT NULL CHECK (password <> ''),
 	teacher INTEGER NOT NULL
 );
 
 CREATE TABLE deck (
         deck_id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES dictionary_users NOT NULL,
         difficulty INTEGER NOT NULL,
         name VARCHAR (35) UNIQUE NOT NULL CHECK (name <> '')
 );
