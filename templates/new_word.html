@@ -13,6 +13,10 @@
 	
 {% if session.teacher == 1 %}
 
+	{% if deck_list|length == 0 %}
+	Ei ole olemassa pakkaa
+	{% else %} 
+
 	{{ selected_deck.type }}
 	
 	<form action="/add_new_word" method="POST" onsubmit="return checkword(this)">
@@ -34,6 +38,7 @@
 	  <input type="text" name="translation" maxlength="35"></p>
 	  <input type="submit" value="Lisää sana pakkaan"></br></br>
 	  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+	  {% endif %}
 {% else %}
 	  Älä yritä huijata!!!! </br></br>
 {% endif %}

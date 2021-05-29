@@ -8,6 +8,10 @@
 	<h1>Sanaharjoittelu</h1>
 	
 {% if session.teacher == 1 %}
+
+	{% if decks|length == 0 %}
+	Ei ole olemassa pakkaa
+	{% else %} 
 	
 	<h3>Poista valittu pakka</h3> </br>
 	
@@ -22,6 +26,7 @@
 {% endfor %}
 	  </select>
 	  <input type="submit" value= "Poista pakka"></br></br>
+	  {% endif %}
 {% else %}
 	  Älä yritä huijata!!!!</br></br>
 {% endif %}
