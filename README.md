@@ -87,5 +87,3 @@
 - CSRF-haavoittuvuus estetty. Kirjautuessa sisään käyttäjän sessioon laitetaan CSRF_token jota käytetään myös html formissa ja lomaketta vastaanotettaessa tarkastetaan ovatko nämä samat.
 - Salasanaa ei tallenneta tietokantaan selkokielisenä.
 
-[Voit testata sovellusta Herokussa tästä](https://sanaharjoittelu.herokuapp.com/) <br />
-
